@@ -4,5 +4,7 @@
   </mat-toolbar>
 </header>
 <main class="main">
-  <app-friends-list [friends]="friendsService.friends"></app-friends-list>
+  <app-friends-list
+    [friends]="friendsService.friends | appFriendsList"
+  ></app-friends-list>
 </main>

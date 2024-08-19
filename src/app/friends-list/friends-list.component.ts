@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
-import { FriendsList } from '../../friend';
+import { FriendDisplay } from '../../friend';
 import { FriendsListItemComponent } from '../friends-list-item/friends-list-item.component';
 
 @Component({
@@ -12,5 +12,5 @@ import { FriendsListItemComponent } from '../friends-list-item/friends-list-item
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FriendsListComponent {
-  @Input({ required: true }) friends: FriendsList = [];
+  @Input({ required: true }) friends: FriendDisplay[] = [];
 }

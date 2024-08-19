@@ -23,3 +23,10 @@ export const FriendsListSchema = z.array(FriendSchema);
 
 export type Friend = z.infer<typeof FriendSchema>;
 export type FriendsList = z.infer<typeof FriendsListSchema>;
+
+export type DateOfBirth = Friend['dateOfBirth'];
+
+export type FriendDisplay = Friend & {
+  daysUntilBirthday: number;
+  age?: number;
+};

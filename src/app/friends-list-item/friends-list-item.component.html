@@ -1,6 +1,10 @@
 <mat-list-item>
-  <span matListItemTitle>{{ item.name }}</span>
-  <span matListItemLine>{{ item.dateOfBirth | appDateOfBirth }}</span>
+  <span matListItemTitle>{{ item.name }} {{ ageDisplay }}</span>
+  <span matListItemLine
+    >{{ item.dateOfBirth | appDateOfBirth }} ({{
+      daysUntilBirthdateDisplay
+    }})</span
+  >
 
   <button
     mat-icon-button

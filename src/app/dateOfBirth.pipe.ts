@@ -1,16 +1,13 @@
 import { Pipe, type PipeTransform } from '@angular/core';
-import { Friend } from '../friend';
+import { DateOfBirth, Friend } from '../friend';
+import { formatBirthdate } from '../utils/date';
 
 @Pipe({
   name: 'appDateOfBirth',
   standalone: true,
 })
 export class DateOfBirthPipe implements PipeTransform {
-  transform(value: Friend['dateOfBirth']): string {
-    if (value.year) {
-      return `${value.day}.${value.month}.${value.year}`;
-    } else {
-      return `${value.day}.${value.month}`;
-    }
+  transform(value: DateOfBirth): string {
+    return formatBirthdate(value);
   }
 }
