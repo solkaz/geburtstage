@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FriendsList } from '../friend';
-import { getFriends } from '../utils/localStorage';
+import { getFriends, updateFriends } from '../utils/localStorage';
 import { FriendsListComponent } from './friends-list/friends-list.component';
 
 @Component({
@@ -22,5 +22,12 @@ export class AppComponent {
       // TODO: notify that data is malformed
       this.friends = [];
     }
+  }
+
+  onUpdateList(friendsList: FriendsList) {
+    console.log({ friendsList });
+
+    updateFriends(friendsList);
+    this.friends = friendsList;
   }
 }
