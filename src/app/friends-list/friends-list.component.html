@@ -1,0 +1,8 @@
+<mat-list>
+  @for (item of friends; track item) {
+  <mat-list-item>
+    <span matListItemTitle>{{ item.name }}</span>
+    <span matListItemLine>{{ item.dateOfBirth | appDateOfBirth }}</span>
+  </mat-list-item>
+  }
+</mat-list>
