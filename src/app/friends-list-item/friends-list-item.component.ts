@@ -1,30 +1,22 @@
-import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   inject,
   Input,
-  Output,
 } from '@angular/core';
-import { Friend } from '../../friend';
-import { DateOfBirthPipe } from '../dateOfBirth.pipe';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { Friend } from '../../friend';
 import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.component';
+import { DateOfBirthPipe } from '../dateOfBirth.pipe';
+import { FriendsService } from '../Friends.service';
 
 @Component({
   selector: 'app-friends-list-item',
   standalone: true,
-  imports: [
-    CommonModule,
-    DateOfBirthPipe,
-    MatListModule,
-    MatIconModule,
-    MatMenuModule,
-  ],
+  imports: [DateOfBirthPipe, MatListModule, MatIconModule, MatMenuModule],
   templateUrl: './friends-list-item.component.html',
   styleUrl: './friends-list-item.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,7 +24,7 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 export class FriendsListItemComponent {
   @Input({ required: true }) item!: Friend;
 
-  @Output() delete = new EventEmitter<string>();
+  constructor(public friendsService: FriendsService) {}
 
   readonly dialog = inject(MatDialog);
 
@@ -43,7 +35,7 @@ export class FriendsListItemComponent {
 
     dialogRef.afterClosed().subscribe((shouldDelete) => {
       if (shouldDelete) {
-        this.delete.emit(this.item.id);
+        this.friendsService.deleteFriend(this.item);
       }
     });
   }

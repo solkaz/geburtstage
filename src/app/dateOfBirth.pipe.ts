@@ -6,7 +6,7 @@ import { Friend } from '../friend';
   standalone: true,
 })
 export class DateOfBirthPipe implements PipeTransform {
-  transform(value: Friend['dateOfBirth'], ...args: unknown[]): unknown {
+  transform(value: Friend['dateOfBirth']): string {
     if (value.year) {
       return `${value.day}.${value.month}.${value.year}`;
     } else {

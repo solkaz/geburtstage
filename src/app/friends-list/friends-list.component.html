@@ -1,8 +1,5 @@
 <mat-list>
-  @for (item of friends; track item) {
-  <app-friends-list-item
-    [item]="item"
-    (delete)="onDelete($event)"
-  ></app-friends-list-item>
+  @for (item of friends; track item.id) {
+  <app-friends-list-item [item]="item"></app-friends-list-item>
   }
 </mat-list>

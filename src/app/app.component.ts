@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FriendsList } from '../friend';
-import { getFriends, updateFriends } from '../utils/localStorage';
 import { FriendsListComponent } from './friends-list/friends-list.component';
+import { FriendsService } from './Friends.service';
 
 @Component({
   selector: 'app-root',
@@ -13,21 +12,6 @@ import { FriendsListComponent } from './friends-list/friends-list.component';
 })
 export class AppComponent {
   title = 'geburtstage';
-  friends: FriendsList;
 
-  constructor() {
-    try {
-      this.friends = getFriends();
-    } catch (error) {
-      // TODO: notify that data is malformed
-      this.friends = [];
-    }
-  }
-
-  onUpdateList(friendsList: FriendsList) {
-    console.log({ friendsList });
-
-    updateFriends(friendsList);
-    this.friends = friendsList;
-  }
+  constructor(public friendsService: FriendsService) {}
 }
