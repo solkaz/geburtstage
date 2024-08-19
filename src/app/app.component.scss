@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+
+mat-toolbar {
+  box-shadow: 0 4px 2px -2px lightgray;
+}
+
+main {
+  padding: 1rem 2rem;
+}
