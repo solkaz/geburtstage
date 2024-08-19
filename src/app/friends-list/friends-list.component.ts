@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { MatListModule } from '@angular/material/list';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FriendsList } from '../../friend';
-import { DateOfBirthPipe } from '../dateOfBirth.pipe';
+import { FriendsListItemComponent } from '../friends-list-item/friends-list-item.component';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-friends-list',
   standalone: true,
-  imports: [CommonModule, MatListModule, DateOfBirthPipe],
+  imports: [CommonModule, FriendsListItemComponent, MatListModule],
   templateUrl: './friends-list.component.html',
   styleUrl: './friends-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
