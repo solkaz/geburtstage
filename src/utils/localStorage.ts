@@ -11,6 +11,8 @@ export function getFriends(): FriendsList {
     }
     return FriendsListSchema.parse(JSON.parse(rawValue));
   } catch (error) {
+    console.log({ error });
+
     throw new Error(
       'Data in localStorage is malformed and could not be parsed'
     );

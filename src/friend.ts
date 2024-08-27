@@ -13,7 +13,6 @@ export const FriendSchema = z.object({
     month: z.number().gte(1).lte(12),
     year: z
       .number()
-      .gte(1900)
       .lte(new Date().getFullYear()) // Shouldn't allow for people that haven't been born yet
       .optional(),
   }),

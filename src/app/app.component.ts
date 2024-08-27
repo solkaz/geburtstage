@@ -1,18 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FriendsListComponent } from './friends-list/friends-list.component';
 import { FriendsService } from './friends.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FriendsListPipe } from './friendsList.pipe';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { FriendFormDialogComponent } from './friend-form-dialog/friend-form-dialog.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatToolbarModule, FriendsListComponent, FriendsListPipe],
+  imports: [
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FriendsListComponent,
+    FriendsListPipe,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'geburtstage';
+  readonly dialog = inject(MatDialog);
 
   constructor(public friendsService: FriendsService) {}
+
+  onAddButtonClicked() {
+    this.dialog
+      .open(FriendFormDialogComponent)
+      .afterClosed()
+      .subscribe((newFriend) => {
+        if (newFriend) {
+          this.friendsService.addFriend(newFriend);
+        }
+      });
+  }
 }

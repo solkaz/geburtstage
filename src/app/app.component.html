@@ -1,6 +1,14 @@
 <header>
   <mat-toolbar>
     <span>Birthday tracker</span>
+
+    <button
+      mat-icon-button
+      aria-label="Add new friend"
+      (click)="onAddButtonClicked()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
   </mat-toolbar>
 </header>
 <main class="main">

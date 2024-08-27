@@ -13,6 +13,7 @@ import { ConfirmDeleteComponent } from '../confirm-delete/confirm-delete.compone
 import { DateOfBirthPipe } from '../dateOfBirth.pipe';
 import { FriendsService } from '../friends.service';
 import { MatButtonModule } from '@angular/material/button';
+import { FriendFormDialogComponent } from '../friend-form-dialog/friend-form-dialog.component';
 
 @Component({
   selector: 'app-friends-list-item',
@@ -49,15 +50,28 @@ export class FriendsListItemComponent {
     return `wish them a happy birthday!`;
   }
 
-  onDeleteRequested(): void {
-    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
-      data: this.item,
-    });
+  onEdit() {
+    this.dialog
+      .open(FriendFormDialogComponent, { data: this.item })
+      .afterClosed()
+      .subscribe((updated) => {
+        if (updated) {
+          this.friendsService.updateFriend({
+            ...this.item,
+            ...updated,
+          });
+        }
+      });
+  }
 
-    dialogRef.afterClosed().subscribe((shouldDelete) => {
-      if (shouldDelete) {
-        this.friendsService.deleteFriend(this.item);
-      }
-    });
+  onDeleteRequested() {
+    this.dialog
+      .open(ConfirmDeleteComponent, { data: this.item })
+      .afterClosed()
+      .subscribe((shouldDelete) => {
+        if (shouldDelete) {
+          this.friendsService.deleteFriend(this.item);
+        }
+      });
   }
 }

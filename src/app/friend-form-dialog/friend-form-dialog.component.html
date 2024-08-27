@@ -1,0 +1,61 @@
+<h2 mat-dialog-title>{{ titleDisplay }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="nameInput">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+    <div formGroupName="dateOfBirth">
+      <p>Date of birth:</p>
+
+      <div class="dateOfBirthInputRow">
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input
+            matInput
+            formControlName="day"
+            required
+            type="number"
+            min="0"
+            max="31"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Month</mat-label>
+
+          <mat-select required formControlName="month">
+            <mat-option disabled></mat-option>
+            <mat-option value="1">January</mat-option>
+            <mat-option value="2">February</mat-option>
+            <mat-option value="3">March</mat-option>
+            <mat-option value="4">April</mat-option>
+            <mat-option value="5">May</mat-option>
+            <mat-option value="6">June</mat-option>
+            <mat-option value="7">July</mat-option>
+            <mat-option value="8">August</mat-option>
+            <mat-option value="9">September</mat-option>
+            <mat-option value="10">October</mat-option>
+            <mat-option value="11">November</mat-option>
+            <mat-option value="12">December</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Year</mat-label>
+          <input
+            matInput
+            formControlName="year"
+            type="number"
+            min="0"
+            [max]="currentYear"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cancel</button>
+  <button mat-button (click)="onSubmit()" cdkFocusInitial>
+    {{ isEdit ? "Update" : "Create" }}
+  </button>
+</mat-dialog-actions>
