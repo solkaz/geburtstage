@@ -1,4 +1,4 @@
-import { FriendsListSchema, FriendsList, Friend } from '../friend';
+import { FriendsList, FriendsListSchema } from '../friend';
 
 export const LOCAL_STORAGE_KEY = 'geburtstage:friends';
 

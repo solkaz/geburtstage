@@ -45,6 +45,7 @@ export class FriendsService {
     try {
       const friends = getFriends();
       return friends;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       this.snackBar.open(error);
       return [];

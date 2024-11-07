@@ -1,5 +1,5 @@
 import { Pipe, type PipeTransform } from '@angular/core';
-import { DateOfBirth, Friend } from '../friend';
+import { DateOfBirth } from '../friend';
 import { formatBirthdate } from '../utils/date';
 
 @Pipe({

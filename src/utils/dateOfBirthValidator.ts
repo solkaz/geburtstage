@@ -1,8 +1,8 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
-import { isLeapYear, isValid } from 'date-fns';
+import { isValid } from 'date-fns';
 
 export function dateOfBirthValidator(): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
+  return (control: AbstractControl): Record<string, unknown> | null => {
     const day = control.get('day')?.value;
     const month = control.get('month')?.value;
     const year = control.get('year')?.value;

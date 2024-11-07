@@ -81,9 +81,7 @@ export class FriendFormDialogComponent implements OnInit {
         dateOfBirth: {
           day: formValue.dateOfBirth.day,
           month: Number.parseInt(formValue.dateOfBirth.month),
-          year: !!formValue.dateOfBirth.year
-            ? formValue.dateOfBirth.year
-            : undefined,
+          year: formValue.dateOfBirth.year ?? undefined,
         },
       });
     }

@@ -8,7 +8,7 @@ const dateFormatWithoutYear = new Intl.DateTimeFormat(undefined, {
   day: 'numeric',
   month: 'long',
 });
-const dateTimeFormatWithYear = new Intl.DateTimeFormat(undefined, {
+const dateFormatWithYear = new Intl.DateTimeFormat(undefined, {
   day: 'numeric',
   month: 'long',
   year: 'numeric',
@@ -18,7 +18,16 @@ function dateOfBirthToDate(dateOfBirth: Required<DateOfBirth>): Date {
   return new Date(dateOfBirth.year, dateOfBirth.month - 1, dateOfBirth.day);
 }
 
+function hasYear(
+  dateOfBirth: DateOfBirth,
+): dateOfBirth is Required<DateOfBirth> {
+  return dateOfBirth.year !== undefined;
+}
+
 export function formatBirthdate(dateOfBirth: DateOfBirth): string {
+  if (hasYear(dateOfBirth)) {
+    return dateFormatWithYear.format(dateOfBirthToDate(dateOfBirth));
+  }
   return dateFormatWithoutYear.format(
     dateOfBirthToDate({ ...dateOfBirth, year: today.getFullYear() }),
   );
