@@ -1,8 +1,6 @@
 <h2 mat-dialog-title>Delete friend</h2>
-<mat-dialog-content>
-  Would you like to delete entry for {{ friend.name }}?</mat-dialog-content
->
+<mat-dialog-content> Remove entry for {{ friend.name }}?</mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="dialogRef.close(false)">No</button>
-  <button mat-button (click)="dialogRef.close(true)">Ok</button>
+  <button mat-button (click)="dialogRef.close(false)">Cancel</button>
+  <button mat-button (click)="dialogRef.close(true)">Delete</button>
 </mat-dialog-actions>
