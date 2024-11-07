@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { FriendFormDialogComponent } from './friend-form-dialog/friend-form-dialog.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import { FriendFormDialogComponent } from './friend-form-dialog/friend-form-dial
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
     FriendsListComponent,
     FriendsListPipe,
   ],

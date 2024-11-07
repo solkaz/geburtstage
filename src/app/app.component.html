@@ -4,11 +4,18 @@
 
     <button
       mat-icon-button
-      aria-label="Add new friend"
-      (click)="onAddButtonClicked()"
+      matListItemMeta
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
     >
-      <mat-icon>add</mat-icon>
+      <mat-icon>more_vert</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onAddButtonClicked()">
+        <mat-icon>add</mat-icon>
+        <span>Add</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 </header>
 <main class="main">
