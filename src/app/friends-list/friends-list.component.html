@@ -1,9 +1,9 @@
 @if (friends.length !== 0) {
-<mat-list>
-  @for (item of friends; track item.id) {
-  <app-friends-list-item [item]="item"></app-friends-list-item>
-  }
-</mat-list>
+  <mat-list>
+    @for (item of friends; track item.id) {
+      <app-friends-list-item [item]="item"></app-friends-list-item>
+    }
+  </mat-list>
 } @else {
-<p>No friends currently tracked.</p>
+  <p>No friends currently tracked.</p>
 }

@@ -48,7 +48,7 @@ export class FriendFormDialogComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public friend?: Friend
+    @Inject(MAT_DIALOG_DATA) public friend?: Friend,
   ) {}
 
   ngOnInit() {
@@ -64,7 +64,7 @@ export class FriendFormDialogComponent implements OnInit {
           ],
           year: [this.friend?.dateOfBirth.year ?? ''],
         },
-        { validators: dateOfBirthValidator() }
+        { validators: dateOfBirthValidator() },
       ),
     });
   }

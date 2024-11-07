@@ -20,8 +20,8 @@ export class FriendsListPipe implements PipeTransform {
         return a.daysUntilBirthday > b.daysUntilBirthday
           ? 1
           : b.daysUntilBirthday < a.daysUntilBirthday
-          ? -1
-          : 0;
+            ? -1
+            : 0;
       });
   }
 }

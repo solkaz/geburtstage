@@ -21,9 +21,9 @@ export function dateOfBirthValidator(): ValidatorFn {
           Date.UTC(
             yearNumber ?? new Date().getFullYear(),
             monthNumber - 1,
-            dayNumber
-          )
-        )
+            dayNumber,
+          ),
+        ),
       )
     ) {
       return { invalidDate: 'Invalid date of birth' };

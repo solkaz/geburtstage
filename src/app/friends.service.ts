@@ -17,7 +17,7 @@ export class FriendsService {
       this.friends.concat({
         ...friend,
         id: createNewUuid(),
-      })
+      }),
     );
     this.snackBar.open(`Entry for ${friend.name} added`);
   }
@@ -29,14 +29,14 @@ export class FriendsService {
           return updated;
         }
         return f;
-      })
+      }),
     );
     this.snackBar.open(`Entry for ${updated.name} updated`);
   }
 
   deleteFriend(friend: Friend) {
     this.updateFriendsInLocalStorage(
-      this.friends.filter(({ id }) => id !== friend.id)
+      this.friends.filter(({ id }) => id !== friend.id),
     );
     this.snackBar.open(`Entry for ${friend.name} deleted`);
   }

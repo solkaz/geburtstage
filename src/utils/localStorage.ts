@@ -14,7 +14,7 @@ export function getFriends(): FriendsList {
     console.log({ error });
 
     throw new Error(
-      'Data in localStorage is malformed and could not be parsed'
+      'Data in localStorage is malformed and could not be parsed',
     );
   }
 }

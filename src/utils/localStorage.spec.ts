@@ -15,7 +15,7 @@ describe('localStorage utils', () => {
       ].forEach((value) => {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(value));
         expect(() => getFriends()).toThrowError(
-          'Data in localStorage is malformed and could not be parsed'
+          'Data in localStorage is malformed and could not be parsed',
         );
         localStorage.removeItem(LOCAL_STORAGE_KEY);
       });
@@ -35,7 +35,7 @@ describe('localStorage utils', () => {
             name: 'Test without year of birth',
             dateOfBirth: { day: 1, month: 1 },
           },
-        ])
+        ]),
       );
 
       expect(getFriends()).toEqual([

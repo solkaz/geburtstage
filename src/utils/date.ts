@@ -20,7 +20,7 @@ function dateOfBirthToDate(dateOfBirth: Required<DateOfBirth>): Date {
 
 export function formatBirthdate(dateOfBirth: DateOfBirth): string {
   return dateFormatWithoutYear.format(
-    dateOfBirthToDate({ ...dateOfBirth, year: today.getFullYear() })
+    dateOfBirthToDate({ ...dateOfBirth, year: today.getFullYear() }),
   );
 }
 
@@ -38,13 +38,13 @@ export function calculateDaysUntilBirthdate(dateOfBirth: DateOfBirth): number {
   ) {
     return differenceInCalendarDays(
       dateOfBirthToDate({ ...dateOfBirth, year: today.getFullYear() + 1 }),
-      today
+      today,
     );
   }
 
   return differenceInCalendarDays(
     dateOfBirthToDate({ ...dateOfBirth, year: today.getFullYear() }),
-    today
+    today,
   );
 }
 
@@ -54,6 +54,6 @@ export function calculateAge(dateOfBirth: DateOfBirth): number | undefined {
   }
   return differenceInYears(
     today,
-    dateOfBirthToDate(dateOfBirth as Required<DateOfBirth>)
+    dateOfBirthToDate(dateOfBirth as Required<DateOfBirth>),
   );
 }
