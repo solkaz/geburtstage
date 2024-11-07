@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Export entries</h2>
+<mat-dialog-content>
+  Select how you want to export your entries</mat-dialog-content
+>
+<mat-dialog-actions>
+  <div class="foo">
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+    <div>
+      <button mat-button (click)="dialogRef.close(CSV_EXPORT_METHOD)">
+        CSV
+      </button>
+      <button mat-button (click)="dialogRef.close(JSON_EXPORT_METHOD)">
+        JSON
+      </button>
+    </div>
+  </div>
+</mat-dialog-actions>
