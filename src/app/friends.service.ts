@@ -23,8 +23,6 @@ export class FriendsService {
   }
 
   updateFriend(updated: Friend) {
-    console.log({ updated });
-
     this.updateFriendsInLocalStorage(
       this.friends.map((f) => {
         if (f.id === updated.id) {
@@ -48,8 +46,6 @@ export class FriendsService {
       const friends = getFriends();
       return friends;
     } catch (error: any) {
-      console.log({ error });
-
       this.snackBar.open(error);
       return [];
     }
