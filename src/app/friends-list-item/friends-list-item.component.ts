@@ -17,7 +17,6 @@ import { FriendFormDialogComponent } from '../friend-form-dialog/friend-form-dia
 
 @Component({
   selector: 'app-friends-list-item',
-  standalone: true,
   imports: [
     DateOfBirthPipe,
     MatButtonModule,

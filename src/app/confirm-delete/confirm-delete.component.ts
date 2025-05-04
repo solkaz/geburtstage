@@ -14,7 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-confirm-delete',
-  standalone: true,
   imports: [MatDialogModule, MatButtonModule],
   templateUrl: './confirm-delete.component.html',
   styleUrl: './confirm-delete.component.scss',

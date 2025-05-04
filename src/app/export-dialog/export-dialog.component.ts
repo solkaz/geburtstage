@@ -6,12 +6,11 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 export type ExportMethod = 'csv' | 'json';
 
 @Component({
-  selector: 'app-export-dialog',
-  standalone: true,
-  imports: [CommonModule, MatDialogModule, MatButtonModule],
-  templateUrl: './export-dialog.component.html',
-  styleUrl: './export-dialog.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-export-dialog',
+    imports: [CommonModule, MatDialogModule, MatButtonModule],
+    templateUrl: './export-dialog.component.html',
+    styleUrl: './export-dialog.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExportDialogComponent {
   readonly CSV_EXPORT_METHOD: ExportMethod = 'csv';

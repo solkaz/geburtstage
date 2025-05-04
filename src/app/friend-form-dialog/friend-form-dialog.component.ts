@@ -26,7 +26,6 @@ import { Friend } from '../../friend';
 
 @Component({
   selector: 'app-friend-form-dialog',
-  standalone: true,
   imports: [
     CommonModule,
     MatDialogModule,

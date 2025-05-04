@@ -16,7 +16,6 @@ import { exportAsCsv, exportAsJson } from '../utils/file';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
     MatToolbarModule,
     MatIconModule,

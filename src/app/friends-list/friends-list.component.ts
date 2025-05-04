@@ -5,7 +5,6 @@ import { FriendsListItemComponent } from '../friends-list-item/friends-list-item
 
 @Component({
   selector: 'app-friends-list',
-  standalone: true,
   imports: [FriendsListItemComponent, MatListModule],
   templateUrl: './friends-list.component.html',
   styleUrl: './friends-list.component.scss',
